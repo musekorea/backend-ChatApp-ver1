@@ -74,9 +74,7 @@ socketServer.on('connection', (socket) => {
 
   socket.on('sendMessage', (msg, nickName, roomName, addMessage) => {
     socket.to(roomName).emit('newMessage', msg, nickName);
-    addMessage(nickName);
-    console.log(socketServer.sockets.adapter.rooms);
-    console.log(socketServer.sockets.adapter.rooms.get(roomName).size);
+    addMessage(msg, nickName);
   });
 });
 

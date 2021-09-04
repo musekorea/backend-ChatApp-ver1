@@ -3,3 +3,173 @@
   margin: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #e5edee;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrap {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  height: 550px;
+  width: 300px;
+  background-color: #f5f6f1;
+  overflow: hidden;
+}
+header {
+  width: 100%;
+  display: flex;
+  padding: 5px 15px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  top: 0px;
+}
+.icons {
+  display: flex;
+}
+.icons i {
+  font-size: 10px;
+  margin: 0 1.5px;
+}
+#logo {
+  letter-spacing: 0.5px;
+}
+button {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+#headerRoomInfo {
+  display: flex;
+  position: relative;
+  top: 25px;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 6px 15px;
+  cursor: pointer;
+}
+#headerRoomInfo i {
+  font-size: 15px;
+}
+
+#roomTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#roomTitle span {
+  color: lightcoral;
+  font-size: 14px;
+  margin-left: 5px;
+}
+
+main {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+#nickContainer,
+#roomContainer,
+#msgContainer {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  bottom: 20px;
+}
+#nickForm,
+#roomForm,
+#msgForm {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 50px;
+}
+#nickInput,
+#roomInput,
+#msgInput {
+  border: none;
+  outline: none;
+  width: 80%;
+  padding: 10px;
+}
+
+.notiContainer {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 200px;
+  top: 10%;
+  background-color: wheat;
+  width: 100%;
+}
+.submit {
+  margin-right: 20px;
+}
+.btnEffect {
+  color: #465efb;
+  animation: btn 1s infinite ease;
+}
+@keyframes btn {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.3);
+  }
+}
+#roomListContainer {
+  background-color: rgba(117, 109, 109, 0.2);
+  position: absolute;
+  width: 100%;
+  top: 48.5%;
+  padding: 15px 20px;
+  text-align: left;
+}
+#usersList {
+  background-color: rgba(255, 0, 0, 0.151);
+  position: relative;
+  top: 30px;
+  width: 100%;
+  padding: 10px;
+  font-size: 10px;
+  opacity: 0.5;
+}
+.msgLi {
+  padding: 5px 10px;
+}
+#chatContainer {
+  position: absolute;
+  width: 100%;
+  height: 70%;
+  top: 30px;
+  font-size: 14px;
+  overflow-y: scroll;
+}
+.msgLi {
+  padding: 5px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+.event {
+  text-align: center;
+}
+.myMsg {
+  text-align: left;
+}
+.otherMsg {
+  text-align: right;
+  background-color: rgba(0, 128, 0, 0.05);
+}
