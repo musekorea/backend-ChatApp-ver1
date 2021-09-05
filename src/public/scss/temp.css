@@ -158,6 +158,7 @@ main {
   top: 30px;
   font-size: 14px;
   overflow-y: scroll;
+  background-color: aqua;
 }
 .msgLi {
   padding: 5px 20px;

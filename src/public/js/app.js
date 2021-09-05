@@ -53,6 +53,7 @@ const handleMsgSubmit = (e) => {
     addMessage(message, nickName);
   });
   msgInput.value = '';
+  checkScroll();
 };
 
 const showRoom = (nick) => {
@@ -140,6 +141,10 @@ socket.on('newRoom', (rooms) => {
   });
 });
 
+const checkScroll = () => {
+  chatContainer.scrollTop = chatContainer.scrollHeight;
+};
+
 nickForm.addEventListener('submit', handleNickSubmit);
 nickForm.addEventListener('keydown', (e) => {
   submitBtns[0].classList.add('btnEffect');
@@ -149,4 +154,8 @@ roomForm.addEventListener('keydown', (e) => {
 });
 msgForm.addEventListener('keydown', (e) => {
   submitBtns[2].classList.add('btnEffect');
+  checkScroll();
+});
+msgForm.addEventListener('keyup', () => {
+  checkScroll();
 });
