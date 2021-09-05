@@ -17,7 +17,6 @@ const noti1 = document.querySelector('.noti1');
 const noti2 = document.querySelector('.noti2');
 const roomListContainer = document.querySelector('#roomListContainer');
 const roomListOl = roomListContainer.querySelector('#roomListUl');
-const roomListSpan = document.createElement('li');
 const userList = document.querySelector('#usersList');
 const chatContainer = document.querySelector('#chatContainer');
 const roomTitle = document.querySelector('#roomTitle');
@@ -110,27 +109,32 @@ socket.on('byeRoom', (msg) => {
 
 socket.on('newMessage', (msg, nickName) => {
   addMessage(msg, nickName);
-  //userLiscContainer.innerHTML = ``;
 });
+const roomListSpan = document.createElement('span');
 
 socket.on('newRoom', (rooms) => {
   if (rooms.length === 0) {
+    if (roomListOl.firstChild) {
+      roomListOl.hidden = true;
+    }
+    console.log('noroom');
     roomListContainer.append(roomListSpan);
     roomListSpan.innerHTML = `No rooms now`;
     return;
   }
+  roomListSpan.remove();
+  roomListOl.hidden = false;
   rooms.forEach((rooms) => {
     if (roomName === rooms.roomName) {
       const roomUserLength = rooms.users.length;
       roomTitle.innerHTML = `${roomName}  <span>(${roomUserLength})</span>`;
     }
   });
-  roomListSpan.hidden = true;
   userLiscContainer.innerHTML = ``;
   roomListOl.innerHTML = '';
   rooms.forEach((room) => {
     const roomListLi = document.createElement('li');
-    roomListLi.innerHTML = `room ${room.roomName} -> ${room.users.length} users`;
+    roomListLi.innerHTML = `room ${room.roomName} : ${room.users.length} users`;
     roomListOl.append(roomListLi);
     if (roomName === room.roomName) {
       userList.hidden = false;
@@ -159,3 +163,5 @@ msgForm.addEventListener('keydown', (e) => {
 msgForm.addEventListener('keyup', () => {
   checkScroll();
 });
+
+nickInput.focus();
