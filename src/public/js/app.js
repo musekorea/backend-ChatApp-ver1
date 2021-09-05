@@ -1,3 +1,6 @@
+import '../scss/temp.css';
+import './effect.js';
+
 const socket = io();
 
 const roomContainer = document.querySelector('#roomContainer');

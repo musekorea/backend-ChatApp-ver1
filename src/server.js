@@ -2,12 +2,14 @@ import express from 'express';
 import http from 'http';
 import { Server } from 'socket.io';
 import { instrument } from '@socket.io/admin-ui';
+import exp from 'constants';
 
 const app = express();
 
-app.use('/static', express.static(__dirname + '/public'));
+//app.use('/static', express.static(__dirname + '/public'));
+app.use('/static', express.static('client'));
 app.set('view engine', 'pug');
-app.set('views', __dirname + '/public/views');
+app.set('views', process.cwd() + '/src/public/views');
 
 app.get('/', (req, res) => {
   res.render('home.pug');
